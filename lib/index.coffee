@@ -54,7 +54,16 @@ class TestManager
 	_testCases: {}
 
 	constructor: ->
-		unless @_config.excludeSampleTests
+		@_addMockTests()
+
+	configure: (options)->
+		_.extend @_config, options
+		if @_config.excludeSampleTests
+			@_removeMockTests()
+		else
+			@_addMockTests()
+
+	_addMockTests: ->
 			@add 'MacTest Mock > A Mock Test Suite', (fn) ->
 				result = new Result()
 				result.success "A mock step completing succesfully", "success() method called on the Result object"
@@ -67,9 +76,10 @@ class TestManager
 
 			@add 'MacTest Mock > A Mock Test that throws an Error during execution', (fn) ->
 				throw new Error("This mock error was thrown during test execution")
-
-	configure: (options)->
-		_.extend @_config, options
+	_removeMockTests:->
+		@remove('MacTest Mock > A Mock Test Suite')
+		@remove('MacTest Mock > A Mock Test with a Error in the callback (handled error)')
+		@remove('MacTest Mock > A Mock Test that throws an Error during execution')
 
 	routes: (app)->
 		routes(app, @)
@@ -92,6 +102,11 @@ class TestManager
 	add: (name, fn) ->
 		name = name.split('/').pop()
 		@_testCases[name] = fn
+
+	remove: (name)->
+		name = name.split('/').pop()
+		delete _testCases[name]
+
 
 	list: ->
 		list = _.keys(@_testCases)
