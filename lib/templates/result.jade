@@ -1,0 +1,17 @@
+extends layout
+
+block script
+
+block content
+	.container
+		.row
+			.col-lg-12
+				h2 #{locals.test}
+		each outcome, subtest in locals.result
+			- var outcomeClass = outcome.isFailed === true ? "alert-danger" : outcome.isFailed === false ? "alert-success" : "alert-info"
+			- var print = outcome.print.split("\n").join("<br>")
+			div(class="alert #{outcomeClass}")
+				div(style="font-weight: bold")
+					| #{subtest}
+				div
+					!= print

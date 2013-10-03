@@ -1,0 +1,22 @@
+{
+  "name": "mactest",
+  "description": "An express library for hackers, for on-the-go, quick'n dirty unit testing",
+  "keywords": ["express","unit","testing","unit test","test"],
+  "version": "0.0.1",
+  "private": false,
+  "homepage": "https://github.com/tifroz/mactest",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository" : {
+		"type" : "git",
+		"url" : "https://github.com/tifroz/mactest.git"
+  },
+  "dependencies": {
+  	"underscore": "1.5.x",
+    "seq": "0.3.x",
+		"jade": "0.35.x"
+  },
+  "engines" : {
+		"node" : ">=0.8.0"
+	}
+}
