@@ -2,11 +2,11 @@
   "name": "mactest",
   "description": "An express library for hackers, for on-the-go, quick'n dirty unit testing",
   "keywords": ["express","unit","testing","unit test","test"],
-  "version": "0.0.2",
+  "version": "0.1.1",
   "private": false,
   "homepage": "https://github.com/tifroz/mactest",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "lib/mactest.js",
   "repository" : {
 		"type" : "git",
 		"url" : "https://github.com/tifroz/mactest.git"

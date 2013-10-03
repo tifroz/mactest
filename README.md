@@ -9,7 +9,7 @@ mactest
 ## Use it
 
 #### Configure with [Express](https://github.com/visionmedia/express)
-Assuming you are running a server with express, this will create a page available at http://yourserver.host/mtest, where your tests will be listed, and can be executed
+Assuming you are running a server with express, this will create a page available at http://yourserver.host/mactest, where your tests will be listed, and can be executed
 
 ```javascript
 express				= require('express') ;
@@ -21,7 +21,7 @@ app
 	.use(express.logger())
 	.use(app.router) ;
 
-mactest.configure({rootPath: '/mtests', excludeSampleTests: false})
+mactest.configure({rootPath: '/mactest', excludeSampleTests: false})
 mactest.routes(app)
 ```
 
@@ -49,13 +49,13 @@ mactest.add( 'util functions > url resolve', function(result, fn){
 
 ```
 
-Now your browser should show a **util functions > url resolve** link when you got to http://my.host/mtests (and you can execute the test & visualize the outcome by clicking the link)
+Now your browser should show a **util functions > url resolve** link when you got to http://my.host/mactest (and you can execute the test & visualize the outcome by clicking the link)
 
 ## API
 
 `mactest.configure(options)` to configure mactest
 **options** is a hash with 2 keys:
-- `rootPath` (string, defaults to `/mtests`) is the path on your server to access the page where all your tests are listed 
+- `rootPath` (string, defaults to `/mactest`) is the path on your server to access the page where all your tests are listed 
 - `excludeSampleTests` (boolean, defaults to false) unless you override, you will see some built-in mock tests in addition to the tests you have defined in your code
 
 `mactest.add(name, testFn)` to add a test suite 
