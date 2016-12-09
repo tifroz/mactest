@@ -1,16 +1,16 @@
 Seq 			= require 'seq'
-jade			= require 'jade'
+pug			= require 'pug'
 fs				= require 'fs'
 
 templatesPath = "#{__dirname}/templates".replace('dist', 'src')
 
-testsFileName = "#{templatesPath}/tests.jade"
+testsFileName = "#{templatesPath}/tests.pug"
 testsFile = fs.readFileSync testsFileName, {encoding: 'utf8'}
-testsTemplate = jade.compile testsFile, {filename: testsFileName, pretty: true}
+testsTemplate = pug.compile testsFile, {filename: testsFileName, pretty: true}
 
-resultFileName = "#{templatesPath}/result.jade"
+resultFileName = "#{templatesPath}/result.pug"
 resultFile = fs.readFileSync resultFileName, {encoding: 'utf8'}
-resultTemplate = jade.compile resultFile, {filename: resultFileName, pretty: true}
+resultTemplate = pug.compile resultFile, {filename: resultFileName, pretty: true}
 
 
 
